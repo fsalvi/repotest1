@@ -1,0 +1,70 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<title> Różne implementacje systemu TeX</title>
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-2">
+</head>
+<body>
+
+<h1> Różne implementacje systemu TeX</h1>
+
+<p>O tym, że TeX nie jest reliktem przeszłości świadczy powstawanie 
+nowych implementacji. Po chwilowym zachłyśnięciu się narzędziami
+WIWISIG i ich złudną przyjaznością dla użytkownika nastąpił renesans
+systemu TeX. Ostatnio pojawiło się kilka nowych implementacji, a&nbsp;stare
+są wciąż uaktualniane.
+</p>
+
+<p>Należy pamiętać, że TeX jest zawsze taki sam -- makroprocesor,
+interpreter tego samego języka. Różnice implementacyjne polegają 
+na dostosowaniu programu do różnych systemów operacyjnych (głównie chodzi 
+o&nbsp;system wejścia/wyjścia), różne są programy pomocnicze.
+
+<p>
+W przypadku systemu operacyjnego Unix (i wszelkich jego odmian)
+nie musimy się zastanawiać --
+bardzo dobrą implementacją był <a href=tetex.html>teTeX</a>, na bazie którego
+powstała dystrybucja wieloplatformowa 
+<a href="http://tug.org/texlive">TeX Live</a>. W przypadku
+systemów MS DOS i MS Windows różnorodność jest duża, ale wiele projektów
+jest już nieaktualnych.
+<!-- Nie jest dobrze,
+kiedy dysponujemy ,,jedynie słusznym'' rozwiązaniem, ale nie jest również
+dobrze, kiedy mamy do dyspozycji kilka rozwiązań niedopracowanych do końca.-->
+</p>
+
+<h3>Implementacje ,,Public domain''</h3>
+<ul>
+<li> <a href=tetex.html>teTeX</a>
+<li> <a href=emtex.html>emTeX</a>
+<!-- <li> <a href=fptex.html>fpTeX</a> -->
+<li> <a href=miktex.html>MikTeX</a>
+<!-- <li> <a href=djgpp.html>djgpp -- TeX dla DOS</a> -->
+</ul>
+
+<h3>Implementacje komercyjne</h3>
+<p>Znane są mi dwie implementacje 
+(<a href=http://www.tcisoft.com>Scientific WorkPlace</a> i&nbsp;Visual TeX 
+firmy <a href=http://www.micropress-inc.com>MicroPress</a>)
+</p>
+<p>Podstawową cechą tych produktów jest ,,zintegrowane środowisko'':
+edytor pracujący w trybie pseudo-WIWISIG (również wzory matematyczne), 
+przeglądarka dokumentów w trybie dokładnym i sam TeX. Moim zdaniem
+tworzenie dokumentów przetwarzanych TeX-em to nie tylko profesjonalny skład,
+ale i pewna filozofia tworzenia dokumentów (w szczególności LaTeX, TeXinfo),
+polegająca na tym, że tworzymy opis struktury dokumentu; autor koncentruje
+się na treści, a nie na formie -- wyglądem dokumentu zajmie się TeX
+(na podstawie zdefiniowanych reguł). Próbę upodobnienia TeX-a do 
+wordprocesorów WIWISIG uważam za nieporozumienie -- rezygnujemy z mnóstwa
+zalet TeX-a, a dokładamy szereg wad edytorów pracujących
+w trybie graficznym. Do niedawna produkty komercyjne charakteryzowały się
+lepszym dostosowaniem do środowiska Windows (przeglądarka dokumentów
+uwzględniająca dołączane pliki graficzne w różnych postaciach w tym
+postscriptowe). Obecnie można zbudować sobie środowisko pracy oparte
+na oprogramowaniu shareware i ,,wolnych'' implementacjach TeX-a które mają
+podobne własności użytkowe</p>
+
+<hr>
+<em>WM (zmiany: 30.05.2008 -- StaW)</em>
+</body>
+</html>

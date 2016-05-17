@@ -1,0 +1,36 @@
+
+This is the mathdots package, version 0.8.
+
+This package changes the basic LaTeX and plain TeX commands \ddots and
+\vdots so that they properly change size when font sizes change, and
+when they are used in superscripts and subscripts. It also adds the
+command \iddots ()for inverse diagonal dots) which slants the opposite
+way from \ddots.
+
+In addition, if it detects AMSLaTeX (or AMSTeX in plain TeX) it defines
+improved versions of the \dddot and \ddddot commands that place three
+and four dots on a math symbol (similar to the math accent commands \dot
+and \ddot). These also are arranged to change size correctly and some
+placement bugs are corrected.
+
+Other (minor) improvements: the commands \vdots, \ddots and \iddots
+select the dot from the math fonts instead of the text fonts, so they
+always match math punctuation dots. The \dddot and \ddddot commands
+select the accent dot (same one placed by \dot).
+
+File list:
+
+mathdots.dtx    The code
+mathdots.pdf    The manual
+mathdots.ins    unpacking script
+mdtest.tex      Test file
+README          This file
+
+Installation:
+
+Run tex or latex on mathdots.ins to unpack the files. Copy mathdots.tex
+where tex will find it and mathdots.sty where latex will find it. Copy
+the remaining files to your documentation area.
+
+Daniel H. Luecking, \luecking \at \uark \dot \edu
+

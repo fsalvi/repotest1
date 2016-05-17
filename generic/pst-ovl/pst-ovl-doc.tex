@@ -1,0 +1,96 @@
+%% $Id: pst-func-doc.tex 599 2011-11-03 19:38:28Z herbert $
+\documentclass[11pt,english,BCOR10mm,DIV12,bibliography=totoc,parskip=false,
+   smallheadings, headexclude,footexclude,oneside]{pst-doc}
+\usepackage[utf8]{inputenc}
+\usepackage{pst-ovl}
+\let\pstOVLFV\fileversion
+\renewcommand\bgImage{}
+
+\lstset{language=PSTricks,
+    morekeywords={psPrintValue},basicstyle=\footnotesize\ttfamily}
+%
+\begin{document}
+
+\title{\texttt{pst-ovl}}
+\subtitle{Helper functions for overlays; v.\pstOVLFV}
+\author{Herbert Vo\ss}
+\docauthor{}
+\date{\today}
+\maketitle
+
+\tableofcontents
+\psset{unit=1cm}
+
+\section{Overlays}
+
+Overlays are mainly of interest for making slides, and the overlay macros
+described in this section are mainly of interest to \TeX{} macro writers who
+want to implement overlays in a slide macro package.  For example, the
+\LPack{seminar} package, a \LaTeX{} style for notes and slides, uses PSTricks to
+implement overlays.
+
+Overlays are made by creating an "`\Lcs{hbox}"' and then outputting the box several
+times, printing different material in the box each time. The box is created by
+the commands
+\begin{lstlisting}
+  \Lcs{overlaybox} < stuff >\Lcs{endoverlaybox}
+\end{lstlisting}
+\LaTeX{} users can instead write:
+\begin{lstlisting}
+  \begin{overlaybox} <stuff> \end{overlaybox}
+\end{lstlisting}
+
+The material for overlay <string> should go within the scope of the command
+
+  \Lcs{psoverlay}\Largb{string}
+
+<string> can be any string, after expansion. Anything not in the scope of any
+\Lcs{psoverlay} command goes on overlay "`main"', and material within the scope of
+\Lcs{psoverlay}\Largb{all} goes on all the overlays. \Lcs{psoverlay}
+commands can be nested and can be used in math mode.
+
+The command
+
+\Lcs{putoverlaybox}\Largb{string}
+
+then prints overlay <string>.
+
+Here is an example:
+
+\begin{LTXexample}[pos=t]
+\overlaybox
+\psoverlay{all}
+\psframebox[framearc=.15,linewidth=1.5pt]{%
+  \psoverlay{main}
+  \parbox{3.5cm}{\raggedright
+    Foam Cups Damage Environment {\psoverlay{one} Less than
+    Paper Cups,} Study Says.}}
+ \endoverlaybox
+
+\putoverlaybox{main} \hspace{.5in} \putoverlaybox{one}
+\end{LTXexample}
+
+
+
+\clearpage
+\section{List of all optional arguments for \texttt{pst-ovl}}
+
+\xkvview{family=pst-ovl,columns={key,type,default}}
+
+
+
+
+\bgroup
+\raggedright
+\nocite{*}
+\bibliographystyle{plain}
+\bibliography{pst-ovl-doc}
+\egroup
+
+\printindex
+
+
+
+\end{document}
+
+

@@ -1,0 +1,4 @@
+pst-plot-doc.pdf: the main documentation
+dtk02-1.pdf     : Die mathematischen Funktionen von PostScript
+dtk02-2.pdf     : Die Plotfunktionen von pst-plot
+tugboat01-4.pdf : The plot functions of pst-plot

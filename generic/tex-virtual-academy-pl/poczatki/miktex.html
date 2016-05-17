@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<title> MiKTeX</title>
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-2">
+</head>
+<body>
+
+<h1> MiKTeX</h1>
+
+<p>
+<a href="ftp://ftp.gust.org.pl/pub/CTAN/systems/win32/miktex">MiKTeX</a> 
+jest implementacją systemu TeX dla środowiska MS Windows
+(95/98/NT/XP).
+Charakteryzuje się łatwością konfiguracji -- podobną jak w przypadku
+systemu Unix. Widać wyraźnie, że coraz bardziej zbliża się do implementacji
+opartych na Web2C, np. posiada strukturę katalogów zgodną ze standardem TDS
+i&nbsp;może korzystać z&nbsp;zasobów instalacji sieciowych. 
+<p>Bardzo dobra
+przeglądarka dokumentów, współpracująca z GhostScriptem -- potrafi
+wyświetlać dołączoną grafikę postscriptową (nie wywołuje GhostScripta
+przy transformacjach postscriptowych np. obrotach), obsługuje windowsowe
+formaty graficzne (np. .wmf). Niestety w dokumencie nie można
+mieszać grafiki .wmf z postscriptową (oczywiście mieszać możemy,
+ale ne da się tego wydrukować w sensowny sposób --
+chyba że będziemy strony drukowali osobno).</p>
+
+<p>Od wersji 1.20 potrafi konwertowac znaki wg zadanej tablicy
+na wewnętrzny układ danego ,,encodingu''
+(opcja <tt>--translate-file=</tt><it>xxx</it>; gdzie
+<it>xxx</it> jest nazwą tablicy przekodowania -- pliku TCX). 
+<!-- Do ,,upgradu'' z poprzedniej wersji 
+wystarczy rozpakować pliki instalacyjne i ,,podmienić'' zawartość
+katalogów ...\texmf\miktex\ oraz wygenerować formaty (*.base *.fmt).
+Po krótkim testowaniu nie zauważyłem błędów i różnic w działaniu
+w stosunku do wersji 1.11 (sygnalizowałem błędy wesji 1.20 beta 1) --
+oczywiście za wyjątkiem zmiany na plus -- wprowadzenie przekodowań TCX.</p> -->
+
+<p>Od wersji 2.0 MiKTeX jest wyposażony w&nbsp;polskie
+pakiety (makra, fonty itp.). Poprawiono sygnalizowane błędy związane
+z&nbsp;generowaniem fontów i&nbsp;dodano wygodny program konfiguracyjny,
+dostępny z&nbsp;menu systemowego.
+
+<!-- <p>Starsze instalacje MiKTeX
+można uzupełnić o&nbsp;polskie pakiety z&nbsp;serwera ftp GUST
+(<a href="ftp://ftp.gust.org.pl/pub/TeX/GUST/contrib/pl4miktex/">pakiet polish.zip</a> 
+dla MiKTeX).</p> -->
+
+<p>Obecna wersja 2.7 zawiera kilkaset pakietów, stale aktualizowanych
+i&nbsp;umożliwia ich wygodną aktualizację z&nbsp;sieci.
+Krótki opis zawarto w&nbsp;artykule <a href="./inst-mik.html">Szybka
+instalacja MiKTeX</a>.</p> 
+
+<hr>
+<em>WM (zmiany i uzupełnienia: 30.05.2008 -- StaW)</em>
+</body>
+</html>
+

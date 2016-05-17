@@ -1,0 +1,27 @@
+
+
+		Serbian cyrillic package for Babel
+
+		Filip Brcic <brcha@users.sourceforge.net>
+
+1. HOW TO INSTALL
+
+Just copy the files tex/generic/babel/serbianc.* into your <texmfdir>/tex/generic/babel
+and rerun texhash.
+
+Alternatively you can follow instructions provided in the file doc/generic/serbianc/INSTALL
+which is oriented towards bundling serbianc with standard babel distribution.
+
+2. HOW TO USE
+
+When you use serbianc package, you have to set your keyboard layout to serbian cyrillic,
+and you have to use unicode-compliant text editor (such as kile under KDE). You
+also have to save your file in utf-8 encoding.
+
+Take a look at the sample cyrillic document that is included in this package in the
+directory doc/generic/serbianc. In short, all you have to do to use serbian cyrillic
+support for latex is type
+
+\usepackage[serbianc]{babel}
+
+somewhere near the beginning of your master tex file.

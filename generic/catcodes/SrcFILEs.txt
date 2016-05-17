@@ -1,0 +1,14 @@
+
+ *File List*
+actcodes.sty  2012/11/07  v0.2a  active characters (UL)
+stacklet.sty  2012/11/07  v0.3a  private letters (UL)
+ catchdq.sty  2012/09/20  v0.2   simple typographic dqs (UL)
+catcodes.tex  2012/11/07   --    documenting catcodes files
+catcodes.RLS  2012/11/07  r0.1a  documentation corrected/extended
+ makedoc.cfg  2012/11/06   --    documentation settings
+mdoccorr.cfg  2012/11/07   --    `makedoc' local typographical corrections
+ ***********
+
+ List made at 2012/11/07, 22:44
+ from script file srcfiles.tex
+

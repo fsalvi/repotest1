@@ -1,0 +1,6 @@
+Georgian language support for babel.
+works with classic TeX/LaTex as well as for LuaLatex (8bit and unicode modes)
+Thanks to Igor A. Kotelnikov for new russianb,ldf
+
+Installation:
+copy this files to <textmf>/tex/generic/babel/contrib/georgian

@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-2">
+<meta name="keywords" lang="en" content="Polish TeX Users Group, Polish TeX, MiKTeX installation">
+<title>MiKTeX - szybka instalacja</title>
+<title> Fontowe ABC </title>
+</head>
+<body>
+
+<h1>Szybka instalacja MiKTeX dla polskich użytkowników</h1>
+
+MiKTeX jest implementacją systemu TeX i&nbsp;programów towarzyszących dla
+systemów Windows 9x/ME/NT/2K/XP. Posiada łatwy i&nbsp;dość intuicyjny program
+instalacyjny, a&nbsp;także możliwość aktualizacji z&nbsp;sieci.  Podczas
+pierwszej instalacji nie jest jednak jasne, co tak naprawdę zawierają
+proponowane zestawy Small, Large i&nbsp;Total zaś początkujący polski
+użytkownik nie wie czy np.&nbsp;w&nbsp;zestawie Large znajdzie wszystkie
+pakiety dla naszego języka. Przedstawiam zatem skrótowo przepis, który
+pozwoli uniknąć ściągania z&nbsp;sieci wielu dziesiątków megabajtów
+i&nbsp;zainstalować całkiem bogate środowisko z&nbsp;wszystkimi polskimi
+dodatkami. Łącznie do pobrania wystarczy w&nbsp;zupełności ok. 36&nbsp;MB.
+
+<p>
+ <b>Uwaga:</b> MiKTeX (jako ProTeXt) dostępny jest na udostępnianym przez 
+<a href="http://www.gust.org.pl/TeXLive/index.shtml">GUST</a> 
+DVD TeX Collection 2007 i&nbsp;poniższe uwagi można zastosować
+także do tej dystrybucji, np.&nbsp;gdy mamy mało miejsca na dysku.
+
+<p>
+<ol>
+<li> pobrać do tymczasowego katalogu (np.&nbsp;<code>c:\inst\</code>):<br>
+<a href="ftp://ftp.gust.org.pl/TeX/systems/win32/miktex/setup/setup.exe">
+ftp://ftp.gust.org.pl/TeX/systems/win32/miktex/setup/setup.exe</a>
+
+<li> uruchomić:<br>
+<code>c:\inst\setup.exe</code>
+
+<li> W&nbsp;oknie ,,Setup Task'' zaznaczyć ,,Download only''
+
+<li> W&nbsp;oknie ,,Package Set'' zaznaczyć ,,Small''
+
+<li> Na następnej stronie ,,Remote Package Directory'' wybrać
+np. <code>Poland ftp://ftp.gust.org.pl...</code>
+
+<li> W&nbsp;oknie ,,Local Package Repository'' można pozostawić katalog,
+ z&nbsp;którego uruchomiono <code>setup.exe</code>
+
+<li> Po zakończeniu pobierania zakończyć działanie programu, po czym
+ ponownie go uruchomić, tym razem dla instalacji
+
+<li> W&nbsp;oknie ,,Setup Task'' zaznaczyć ,,Install''
+
+<li> W&nbsp;oknie ,,Local Package Repository'' zatwierdzamy ścieżkę lokalnego
+ depozytu (np. <code>c:\inst</code>)
+
+<li> W&nbsp;oknie ,,Instalation folder'' zatwierdzamy domyślny 
+<code>c:\texmf</code>
+ podobnie jak i&nbsp;wszystkie pozostałe zapytania aż do zakończenia
+ pracy <code>setup.exe</code>
+
+<li> Windows 95/98/ME będzie wymagał restartu
+</ol>
+
+<p>
+Do zainstalowanego zestawu ,,Small'' należy teraz dodać polskie pakiety.
+
+<p>
+Z&nbsp;menu <code>Start -> Programy -> MiKTeX</code> uruchomić 
+<code>MiKTeXOptions</code> i&nbsp;wybrać
+zakładkę ,,Packages'' a&nbsp;w&nbsp;niej (dla ,,Package repository'')
+przyciskiem ,,Change'' np. <code>ftp://ftp.gust.org.pl...</code>
+Po zaktualizowaniu bazy danych o&nbsp;dostępnych pakietach można dokonać
+wyboru przez zaznaczenie wśród MiKTeX Packages:
+
+<pre>
+Documentation -> lshort-polish
+Language Support -> Polish (cała gałąź)
+Uncategorized -> tex-ps
+</pre>
+
+<p>
+Po zakończeniu wyboru nacisnąć przycisk ,,Zastosuj''.
+
+<h2>Podstawowa konfiguracja i&nbsp;generowanie formatów</h2>
+
+Uruchamić z&nbsp;menu program <code>MiKTeXOptions</code> (bądź z&nbsp;wiersza poleceń
+<code>mo.exe</code>), w&nbsp;zakładce ,,Languages'' należy zaznaczyć ,,polish''
+i&nbsp;zatwierdzić zmiany przyciskiem ,,Zastosuj''. Teraz w&nbsp;zakładce
+,,TeX Formats'' można wskazać interesujący nas format (np. latex czy mex)
+i&nbsp;wygenerować go przyciskiem ,,Build''. Uwaga: dopiero wtedy LaTeX
+będzie przygotowany do obsługi języka polskiego, tzn. będzie zawierał polskie
+wzorce przenoszenia wyrazów.
+
+<p>
+ Warto pamiętać, że prywatne dodatki (makra, fonty) instalujemy zawsze tylko
+w&nbsp;odpowiednich podkatalogach drzewa <code>c:\localtexmf</code>, po czym
+odświeżamy bazę danych instalacji z&nbsp;programu <code>MiKTeX Options -> 
+General -> Refresh Now</code> (albo, szybciej, z&nbsp;linii poleceń: 
+<code>initexmf -u</code>).
+
+<p>
+ Od wersji 2.4 MiKTeX zawiera specjalnie skonfigurowany program Ghostscript
+o&nbsp;nazwie <code>mgs.exe</code> (aktualnie w&nbsp;wersji 8.15), który w&nbsp;zasadzie
+jest wykorzystywany w&nbsp;tle np. przez program podglądu Yap itp. Chcąc
+skorzystać z&nbsp;<code>mgs.exe</code> z&nbsp;linii poleceń (np. do zadań typu wsadowego)
+należy zadeklarować zmienną systemową
+<pre>
+set MIKTEX_GS_LIB=c:\texmf\ghostscript\base;c:\texmf\fonts
+</pre>
+(powyższy wiersz można dodać w&nbsp;Windows 95/98 do 
+<code>autoexec.bat</code>; w&nbsp;Windows
+NT/XP nazwę zmiennej i&nbsp;przypisaną wartość wpisujemy w&nbsp;<code>Panelu
+sterowania -> System -> Zaawansowane -> Zmienne środowiskowe</code>).
+
+<p>
+<hr>
+<em>Staszek Wawrykiewicz, 30.05.2008</em>
+
+</body></html>
+

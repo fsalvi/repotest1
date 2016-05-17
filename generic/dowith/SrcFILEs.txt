@@ -1,0 +1,20 @@
+
+ *File List*
+  dowith.RLS  2013/03/23  r0.31a publishing fdatechk.tex
+  dowith.sty  2012/11/05  v0.3   simple list loop (UL)
+  domore.sty  2013/03/22  v0.31  dowith extended (UL)
+  dowith.tex  2012/11/27   --    documenting dowith.sty
+  domore.tex  2013/03/22   --    documenting domore files
+srcfiles.tex  2013/03/23   --    file infos -> SrcFILEs.txt
+fdatechk.tex  2013/03/23   --    dowith filedate checks
+ ---USED.---   --  -- --   --     --
+fifinddo.sty  2012/11/17  v0.61  filtering TeX(t) files by TeX (UL)
+ makedoc.sty  2012/08/28  v0.52  TeX input from *.sty (UL)
+niceverb.sty  2012/11/27  v0.51  minimize doc markup (UL)
+ makedoc.cfg  2013/03/22   --    documentation settings
+mdoccorr.cfg  2012/11/13   --    `makedoc' local typographical corrections
+ ***********
+
+ List made at 2013/03/23, 11:26
+ from script file srcfiles.tex
+

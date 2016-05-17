@@ -1,0 +1,117 @@
+%% $Id: pst-news13.tex 856 2013-12-09 10:34:40Z herbert $
+\documentclass[11pt,english,BCOR10mm,DIV12,bibliography=totoc,parskip=false,smallheadings
+    headexclude,footexclude,oneside]{pst-doc}
+\listfiles
+\let\Lfile\LFile
+\usepackage[utf8]{inputenc}
+\usepackage{pst-node}
+\let\pstnodeFV\fileversion
+\let\pstnodeFD\filedate
+\usepackage{pst-plot}
+\usepackage{xkvview}
+\renewcommand\bgImage{\psscalebox{15}{\color{blue!20}2014}}
+\def\textat{\char064}
+\lstset{explpreset={pos=l,width=-99pt,overhang=0pt,hsep=\columnsep,vsep=\bigskipamount,rframe={}},
+    escapechar=?}
+\begin{document}
+
+%\psset{PstDebug=1}
+\title{\texttt{News -- 2014}\\ \Large new macros and bugfixes for the
+basic package \nxLFile{pstricks}}
+\author{Herbert Voß}
+\date{\today}
+
+\maketitle
+
+\clearpage
+\tableofcontents
+
+\clearpage
+\part{\texttt{pstricks} -- package}
+
+%--------------------------------------------------------------------------------------
+%\section{\texttt{pstricks.sty}}
+%--------------------------------------------------------------------------------------
+
+
+%--------------------------------------------------------------------------------------
+\section{\texttt{pstricks.tex} (\pstricksFV -- \pstricksFD)}
+%--------------------------------------------------------------------------------------
+\section{Opacity}
+The keyword \Lkeyword{strokeopacity} is now also valid for \Lcs{psdot}, \Lcs{psdots},
+and the \Lkeyword{linestyle}/\Lkeyword{plotstyle}=\Lkeyval{dots}.
+
+
+\subsection{PostScript notation for numbers}
+Optional arguments which expects a real number can now have a preceeding ! character for
+a PostScript notation which is directly passed to PostScript. The user has take care that
+such a number isn't use before in another \TeX\ macro. In such a case it gives an error.
+
+\begin{LTXexample}[width=5cm]
+\pstVerb{ 1234321 srand }
+\begin{pspicture}[showgrid](-2,-2)(2,2)
+\psframe*[linecolor=blue,opacity=!Rand](2,2)
+\psframe*[linecolor=red,opacity=!Rand](-1,-1)(1,1)
+\psframe*[linecolor=green,opacity=!Rand](-2,-2)(0,0)
+\end{pspicture}
+\end{LTXexample}
+
+
+\subsection{Fillstyle \texttt{eofill}}
+
+It is an experimental fillstyle. PostScript knows only the \Lkeyval{eofill} and the other way round
+needs some tricky internal commands and may not work in all cases.
+
+\begin{LTXexample}[pos=t]
+\begin{pspicture}[linewidth=2pt](12,4)    
+\pscustom[linestyle=none,fillstyle=eofill,fillcolor=blue!40]{%
+   \psellipse(4,2)(2,2)\psellipse(2,2)(2,2)}
+\psellipse[linecolor=red](4,2)(2,2)
+\psellipse[linecolor=green](2,2)(2,2)
+%
+\pscustom[linestyle=none,fillstyle=oefill,fillcolor=blue!40]{%
+   \psellipse(10,2)(2,2)\psellipse(8,2)(2,2)}
+\psellipse[linecolor=red](10,2)(2,2)
+\psellipse[linecolor=green](8,2)(2,2)
+\end{pspicture}
+\end{LTXexample}
+
+
+
+\subsection{New macro \nxLcs{psRing}}
+
+\begin{BDef}
+\LcsStar{psRing}\OptArgs\Largr{\CAny}\OptArg{start,end}\Largb{Inner Radius}\Largb{Outer Radius}
+\end{BDef}
+
+
+\begin{LTXexample}[width=5cm]
+\begin{pspicture}[showgrid](4,4)
+  \psRing(2,2){0.3}{0.8}
+  \psRing*[opacity=0.5](2,2){1}{2}
+\psdot(2,2)
+\end{pspicture}
+\end{LTXexample}
+
+
+\begin{LTXexample}[width=5cm]
+\begin{pspicture}[showgrid](4,4)
+  \psRing[linecolor=red](2,2)[30,60]{1}{2}
+  \psRing[opacity=0.5,fillstyle=solid,
+    fillcolor=red](2,2)[60,30]{1}{2}
+\psdot(2,2)
+\end{pspicture}
+\end{LTXexample}
+
+
+\clearpage
+\nocite{*}
+\bibliographystyle{plain}
+\bibliography{PSTricks}
+
+\printindex
+
+
+\end{document}
+
+

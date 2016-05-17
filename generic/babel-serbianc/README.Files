@@ -1,0 +1,14 @@
+in source/generic/babel:
+serbianc.ins -- SerbianC babel install source file
+serbianc.dtx -- SerbianC babel data source file
+serbianc.patch -- A patch for babel source adding serbianc.{ins,dtx} files and appropriate lines
+                  in the babel.{ins,dtx}, base.ins and language.dat files
+
+in tex/generic/babel:
+serbianc.ldf -- SerbianC babel language definition binary file
+serbianc.sty -- SerbianC babel language style binary file
+
+in doc/generic/serbianc:
+INSTALL      -- Instructions for applying the patch and compiling the babel source tree
+sample.tex   -- A sample file featuring all characters available in Serbian alphabets
+sample.pdf   -- A PDF compiled from the sample.tex file

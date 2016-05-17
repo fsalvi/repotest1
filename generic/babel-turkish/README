@@ -1,0 +1,16 @@
+Turkish 1.3a
+------------
+
+This is the babel style for Turkish.
+
+Changes 1.3
+-----------
+* UTF-8 encoded strings for XeTeX and LuaTeX
+* Upper/Lowercase and hyphenation mappings for T1 and EUx (and
+  incomplete for OT1).
+* Translation for Glossary. 
+* The manual describes how to deal with the ligature fi and
+  how to disable the = shorthand.
+
+----------
+2014-01-14

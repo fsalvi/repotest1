@@ -1,0 +1,192 @@
+<html>
+<head>
+<title>System ConTeXt</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="css/mycss.css">
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-2">
+</head>
+<body bgcolor=#ff9060>
+
+<!-- modyfikacje -- StaW (13.04.2000) -->
+
+<h1>Instalacja systemu</h1>
+
+<p>W katalogu <tt>.../macros/context</tt> serwerów CTAN znajdą Państwo 
+następujące pliki:
+<table border=0>
+<tr valign="top"><td nowrap>
+<tt>cont-doc.zip</tt>
+	</td><td nowrap>--</td><td>
+	        style dla dokumentacji plików ConTeXt 
+			</td></tr>
+<tr valign="top"><td nowrap>
+<tt>cont-fnt.zip</tt>
+	</td><td nowrap>--</td><td>
+	dodatkowe fonty -- to samo jest w <tt>cont-tmf.zip</tt> (za wyjątkiem 
+	plików <tt>.pfm</tt> i <tt>.afm</tt>) -- pobrać jedynie pliki
+	 <tt>.afm</tt> i <tt>.pfm</tt> jeśli są potrzebne
+			</td></tr>
+<tr valign="top"><td nowrap>
+<tt>cont-lat.zip</tt>
+	</td><td nowrap>--</td><td>
+	<tt>PPCHTeX</tt> -- zbiory specyficzne dla <tt>LaTeX-a</tt> (skład wzorów chemicznych)
+			</td></tr>
+<tr valign="top"><td nowrap>
+<tt>cont-mod.zip</tt>
+	</td><td nowrap>--</td><td>
+	moduły dodatkowe -- nie instalować (starocie z poprzednich wersji)
+			</td></tr>
+<tr valign="top"><td nowrap>
+<tt>cont-mps.zip</tt>
+	</td><td nowrap>--</td><td>
+	zbiory dla <tt>METAPOST-a</tt> -- wygląda na starocie; to samo jest w <tt>cont-tmf.zip</tt>
+			</td></tr>
+<tr valign="top"><td nowrap>
+<tt>cont-ppc.zip</tt>
+	</td><td nowrap>--</td><td>
+	<tt>PPCHTeX</tt> -- zbiory dla <tt>PPCHTeX-a</tt> (skład wzorów chemicznych)
+			</td></tr>
+<tr valign="top"><td nowrap>
+<tt>cont-tex.zip</tt>
+	</td><td nowrap>--</td><td>
+	starocie, wygląda, że jest to zbiór dla starszych wersji.
+			</td></tr>
+<tr valign="top"><td nowrap>
+!<tt>cont-tmf.zip</tt>
+	</td><td nowrap>--</td><td>
+	    <b>główne archiwum</b> zawierające system i dokumentację
+			</td></tr>
+<tr valign="top"><td nowrap>
+!<tt>cont-uti.zip</tt>
+	</td><td nowrap>--</td><td>
+	  skrypt perlowy (to samo co w <tt>cont-wrk.zip</tt>)
+			</td></tr>
+<tr valign="top"><td nowrap>
+!<tt>cont-wrk.zip</tt>
+	</td><td nowrap>--</td><td>
+	skrypty perlowe, pliki konfiguracyjne
+			</td></tr>
+</table><br/>
+
+<p>Ponieważ pakiet często jest zmieniany, informacje powyższe mogą być nieaktualne w&nbsp;chwili czytania.
+
+<p>Instalacja jest nieco kłopotliwa, polega na ,,ręcznym'' rozpakowaniu
+plików <tt>.zip</tt> i przekopiowaniu zawartości utworzonych katalogów
+do odpowiednich katalogów drzewa katalogów zawierających instalację
+(za wyjątkiem plików <tt>.afm</tt> i <tt>.pfm</tt> -- które
+nie są niezbędne przy przetwarzaniu <tt>TeX-em</tt> -- można przenieść
+całe, nowoutworzone, drzewo katalogów w odpowiednie miejsce)
+<tt>TeX-a</tt>.</p>
+
+<p>Niestety w archiwach panuje bałagan w katalogach
+spowodowany tym, że serwery mirrorujące pobierają jedynie pliki; nie kasując
+starych i zbędnych.</p>
+
+<p>Dla jasności poniżej przedstawiam katalogi w drzewie <tt>TDS</tt>, gdzie
+znajdują się pliki <tt>ConTeXt-a</tt>.
+<pre>
+...\context
+...\context\data
+...\context\perltk
+...\doc\context
+...\doc\context\base
+...\dvips\context
+...\fonts\tfm\hoekwater\context
+...\fonts\type1\hoekwater\context
+...\fonts\afm\hoekwater\context
+...\fonts\pfm\hoekwater\context
+...\metapost\context
+...\tex\context
+...\tex\context\config\
+</pre></p>
+
+<p>Po wgraniu plików w odpowiednie miejsce należy uaktualnić bazę danych.
+(sposób wykonania tej czynności zależy od implementacji; np. w przypadku
+<tt>MikTeXa</tt> należy uruchomić program <tt> initexmf -u</tt>).</p>
+
+<h4>Generowanie formatu</h4>
+
+<p>Pierwszą czynnością jest zmiana nazwy pliku 
+<tt>texexec.rme</tt> na <tt>texexec.ini</tt> w katalogu 
+<tt>.../context/config</tt> i edycja jego zawartości
+<pre>
+.
+.
+%set  TeXShell  to  tetex 
+%set TeXShell  to  fptex 
+set TeXShell  to  miktex
+%set TeXShell  to  private 
+.
+.
+</pre><br/>
+polegająca na wyborze implementacji (należy usunąć znak <tt>%</tt>
+w  odpowiedniej linii, wstawiając go w pozostałych; powyżej widać, że wybrano 
+<tt>MikTeX-a</tt></p>
+
+<p>Proces generowania jest sterowany za pomocą skryptu perlowego (oczywiście 
+interpretowanego programem Perl) i odbywa się nieco inaczej w różnych
+implementacjach. Najprościej mają użytkownicy <tt>Unixa</tt> -- generowanie
+polega na uruchomieniu skryptu <tt>texexec</tt> z odpowiednimi opcjami
+(możemy założyć, że interpreter <tt>PERL</tt> jest zainstalowany).</p>
+
+<p>W przypadku systemu <tt>Windows</tt> proces może być bardziej skomplikowany
+ze względu na konieczność samodzielnej instalacji <tt>PERL-a</tt> --
+zakładam, że perl jest zainstalwany (można go pobrać z archiwum CPAN, np:
+<a href="ftp://ftp.icm.edu.pl/pub/CPAN/">perl</a>).</p>
+
+<p>Po rozpakowaniu archiwum, w katalogu <tt>.../context/perltk</tt> powinien
+znaleźć się plik <tt>runperl.zip</tt> -- należy go rozpakować, a następnie
+zmienić nazwę pliku <tt>runperl.exe</tt> (zwykle w archiwach perla też
+jest taki plik i jeżeli program interpretera 
+nazywa się inaczej &gt;&gt;np. <tt>winperl</tt>&lt;&lt; należy pobrać plik
+z dystrybucji perla) na <tt>texexec.exe</tt>.
+Sztuczka polega na tym, że program ten ładuje do pamięci program <tt>PERL</tt>
+wskazując mu do wykonania skrypt o nazwie takiej jak on sam (łatwo się
+domyśleć, że w tym wypadku skrypt nazywa się <tt>texexec.pl</tt>),
+przekazując oczywiście podane opcje.</p>
+
+<p>Po wykonaniu powyższych czynności pomocniczych proces generowania
+formatu przebiega już podobnie we wszystkich implementacjach i 
+w najprostszym wariancie polega na wywołaniu:<br/>
+<tt>texexec --make en</tt><br/>
+w wyniku czego powstanie plik <tt>cont-en.fmt</tt> (jak łatwo się
+domyśleć <tt>en</tt> określa format dla języka angielskiego; 
+można podać kilka 
+symbolicznych nazw języków -- zostaną dla nich utworzone formaty).</p>
+
+<p>Dla każdego kodu języka może być utworzony odpowiedni zbiór; konwencja nazw
+jest następująca: <tt>cont-*.tex</tt>, gdzie zamiast <tt>*</tt> należy wstawić
+odpowiedni symbol języka (czyli dla języka polskiego zbiór będzie nosił
+nazwę <tt>cont-pl.tex</tt>).</p>
+
+<p>Jeżeli brak zbioru dla naszego języka możemy użyć innego, w którym
+zadeklarowano użycie naszego lub wzorując się na innych zbiorach utworzyć własny.</p>
+
+<p>Według dokumentacji wywołując program <tt>texexec</tt> można podać inne opcje np:<br/> 
+<tt>texexec --make --language=pl,uk --bodyfont=plr en</tt><br/>
+które powinny sterować procesem generowania formatu. Dokładna analiza (dla systemu
+MS Windows) wykazała, że postać wywołania (opcje i ich wartości) jest przetwarzana
+na język <tt>ConTeXt-a</tt> i zapisywana do zbioru <tt>cont-fmt.tex</tt> (po zakończeniu
+generowania nazwa jest zmieniana na <tt>cont-fmt.log</tt> -- jego zawartość może być
+pomocna w tworzeniu własnego pliku), który
+<b>jest</b> interpretowany w procesie tworzenia formatu. W wyniku działania
+programu <tt>texexec</tt> otrzymamy format o nazwie <tt>cont-en.fmt</tt> zawierający
+między innymi reguły przenoszenia wyrazów w języku polskim i angielskim i możliwość
+wprowadzania polskich diakrytyków w notacji prefixowej (znak prefixu <tt>/</tt>).</p>
+
+<p>
+Mając własny plik z definicją języka możemy wygenerować format:<br/>
+<tt>texexec --make pl</tt><br/>
+</p>
+
+<p>Utworzony format (zbiór <tt>.fmt</tt>) należy umieścić w odpowiednim katalogu
+(można go pozostawić w miejscu generacji, ale należy pamiętać o modyfikacji
+odpowiednich zbiorów konfigurujących instalację <tt>TeX-a</tt>; <tt>PDFTeX</tt> musi
+wiedzieć, gdzie szukać formatu).</p>
+
+Nieco więcej uwag na temat polonizacji ConTeXt-a i&nbsp;jego użycia
+można znaleźć w&nbsp;notatce 
+<a href="../poczatki/cont-pl.html">ConTeXt i&nbsp;język polski</a>
+
+</body>
+</html>
+

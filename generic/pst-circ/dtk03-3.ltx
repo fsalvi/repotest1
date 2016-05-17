@@ -1,0 +1,49 @@
+\documentclass{dtk}
+%\usepackage{dtk-add}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+%
+\usepackage{url}
+\def\UrlFont{\small\ttfamily}
+\makeatletter
+\def\verbatim@font{\small\normalfont\ttfamily}
+\makeatother
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{calc}
+\usepackage{geometry}
+\usepackage{graphicx}
+%
+% pdfLaTeX
+\usepackage{ps4pdf}
+\PSforPDF{%
+    \usepackage{pstcol}
+	\usepackage{pst-circ}%
+}
+\usepackage[colorlinks]{hyperref}
+%
+\newcommand*{\CMD}[1]{\small\texttt{\textbackslash #1}}
+\setlength{\belowcaptionskip}{\abovecaptionskip}
+%
+\usepackage{listings}
+\lstset{%% RN
+  language=[AlLaTeX]{TeX},
+  numbers=left,
+  numberstyle=\tiny,
+  numbersep=.8em,
+  breaklines=true,
+  xleftmargin=1.6em,
+  abovecaptionskip=\abovecaptionskip,
+  belowcaptionskip=\belowcaptionskip,
+  framexleftmargin=1.6em,
+  flexiblecolumns=true,
+  basicstyle=\footnotesize\ttfamily,
+  commentstyle=\footnotesize\ttfamily\itshape,
+  keywordstyle=\footnotesize\ttfamily\bfseries,
+  rulesepcolor=\normalcolor
+}
+\begin{document}
+	\input circ-dtk
+%	\savePics
+\end{document}
